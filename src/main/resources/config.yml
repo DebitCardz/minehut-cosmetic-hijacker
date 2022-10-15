@@ -1,0 +1,9 @@
+disable_cosmetics: true
+
+spoof_cosmetics: false
+
+resource_pack:
+  enabled: false
+  url: "https://example.com/"
+  sha1: "SHA"
+  required: false
