@@ -16,7 +16,7 @@ import java.util.*
 class SpoofCosmeticsCommand(
     private val mhCosmeticPlugin: Plugin
 ) : CommandExecutor, TabCompleter {
-    private val validTypes = listOf("particle", "companion", "balloon", "hat", "wing")
+    private val validTypes = listOf("particle", "companion", "balloon", "hat", "wing", "trinket")
 
     private val cosmeticManagerInst
         get() = mhCosmeticPlugin.javaClass
@@ -102,7 +102,7 @@ class SpoofCosmeticsCommand(
         var returnList: MutableList<String> = mutableListOf()
 
         if(args.size == 1) {
-            returnList = mutableListOf("balloon", "companion", "hat", "item", "particle", "wing")
+            returnList = mutableListOf("balloon", "companion", "hat", "item", "particle", "wing", "trinket")
         }
 
         if(args.size == 2) {
@@ -112,6 +112,7 @@ class SpoofCosmeticsCommand(
                 "balloon" -> BALLOON_IDS.map { it.name }
                 "hat" -> HAT_IDS.map { it.name }
                 "wing" -> WING_IDS.map { it.name }
+                "trinket" -> TRINKET_IDS.map { it.name }
                 else -> listOf()
             }.toMutableList()
         }
@@ -132,6 +133,7 @@ class SpoofCosmeticsCommand(
         private val BALLOON_IDS by lazyOf(yoinkEnumValues("${BASE_PACKAGE}.cosmetics.groups.balloon.Balloon"))
         private val HAT_IDS by lazyOf(yoinkEnumValues("${BASE_PACKAGE}.cosmetics.groups.hat.Hat"))
         private val WING_IDS by lazyOf(yoinkEnumValues("${BASE_PACKAGE}.cosmetics.groups.wing.Wing"))
+        private val TRINKET_IDS by lazyOf(yoinkEnumValues("${BASE_PACKAGE}.cosmetics.groups.trinket.Trinket"))
     }
 }
 
